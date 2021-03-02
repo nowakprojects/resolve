@@ -22,6 +22,7 @@ log.level = verbosityLevels.debug
 enum TestBundle {
   api = 'api',
   testcafe = 'testcafe',
+  'multi-instance' = 'multi-instance',
 }
 
 const resolveDir = (dir: string): string => path.resolve(process.cwd(), dir)
@@ -341,6 +342,30 @@ const runApiTests = async (options: TestBundleOptions) => {
   }
 }
 
+const runMultiInstanceTests = async (options: TestBundleOptions) => {
+  log.debug(`running multi-instance tier tests`)
+
+  const url = getTargetUrl(options)
+
+  log.debug(`target url ${url}`)
+  log.debug(`executing Jest runner`)
+  try {
+    execSync(
+      `yarn jest --config=${resolveDir('jest.config-multi-instance.js')}`,
+      {
+        stdio: 'inherit',
+        env: {
+          ...sanitizedEnvironment(),
+          RESOLVE_TESTS_TARGET_URL: url,
+        },
+      }
+    )
+  } catch (e) {
+    log.error(e)
+    process.exit(1)
+  }
+}
+
 const runTestcafeTests = async (options: TestBundleOptions) => {
   try {
     log.debug(`running WWW tier tests`)
@@ -395,6 +420,8 @@ const runTests = async (bundle: TestBundle, options: TestBundleOptions) => {
       return runApiTests(options)
     case TestBundle.testcafe:
       return runTestcafeTests(options)
+    case TestBundle['multi-instance']:
+      return runMultiInstanceTests(options)
     default:
       throw Error('Unknown test bundle')
   }
