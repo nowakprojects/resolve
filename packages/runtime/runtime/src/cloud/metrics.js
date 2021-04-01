@@ -99,6 +99,47 @@ const getErrorMessage = (error) => {
   return errorMessage
 }
 
+export const putPerformanceMetrics = async (deploymentId, metrics) => {
+  const log = debugLevels('resolve:runtime:cloud-entry:putDataMetrics')
+  const cw = new CloudWatch()
+
+  if (deploymentId == null) {
+    log.warn('Deployment ID not found')
+    return
+  }
+
+  const now = Date()
+
+  try {
+    await cw
+      .putMetricData({
+        Namespace: 'RESOLVE_METRICS',
+        MetricData: metrics.map((metric) => ({
+          MetricName: 'Performance',
+          Timestamp: now,
+          Unit: 'Milliseconds',
+          Value: metric.duration,
+          Dimensions: [
+            {
+              Name: 'DeploymentId',
+              Value: deploymentId,
+            },
+            {
+              Name: 'Name',
+              Value: metric.name,
+            },
+          ],
+        })),
+      })
+      .promise()
+
+    log.verbose('Put metrics succeeded')
+  } catch (e) {
+    log.verbose('Put metrics failed')
+    log.warn(e)
+  }
+}
+
 const putDataMetrics = async (dataMap, commonMap, errorMap) => {
   const log = debugLevels('resolve:runtime:cloud-entry:putDataMetrics')
   const cw = new CloudWatch()
