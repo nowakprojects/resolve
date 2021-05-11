@@ -3,6 +3,7 @@ import { Index } from './components/Index'
 import { NamedSelectors } from './components/NamedSelectors'
 import { ArrayWithQueryString } from './components/ArrayWithinQueryString'
 import { BasicViewModelTests } from './components/ViewModel'
+import { ViewModelIsolationTests } from './components/ViewModelIsolation'
 
 export default [
   {
@@ -24,6 +25,10 @@ export default [
       {
         path: '/redux-hooks/view-model/:runId',
         component: BasicViewModelTests,
+      },
+      {
+        path: '/redux-hooks/view-model-isolation/:runId',
+        component: ViewModelIsolationTests,
       },
     ],
   },

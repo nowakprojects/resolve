@@ -4957,7 +4957,7 @@ asn1.js@^5.2.0:
     minimalistic-assert "^1.0.0"
     safer-buffer "^2.1.0"
 
-asn1@~0.2.3:
+asn1@^0.2.4, asn1@~0.2.3:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
   integrity sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
@@ -12509,11 +12509,6 @@ lodash.difference@4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
   integrity sha1-nMtOUF1Ia5FlE0V3KIWi3yf9AXw=
 
-lodash.differencewith@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.differencewith/-/lodash.differencewith-4.5.0.tgz#bafafbc918b55154e179176a00bb0aefaac854b7"
-  integrity sha1-uvr7yRi1UVTheRdqALsK76rIVLc=
-
 lodash.escape@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.escape/-/lodash.escape-4.0.1.tgz#c9044690c21e04294beaa517712fded1fa88de98"
@@ -13629,6 +13624,13 @@ node-releases@^1.1.70, node-releases@^1.1.71:
   version "1.1.71"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.71.tgz#cb1334b179896b1c89ecfdd4b725fb7bbdfc7dbb"
   integrity sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg==
+
+node-rsa@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/node-rsa/-/node-rsa-1.1.1.tgz#efd9ad382097782f506153398496f79e4464434d"
+  integrity sha512-Jd4cvbJMryN21r5HgxQOpMEqv+ooke/korixNNK3mGqfGJmy0M77WDDzo/05969+OkMy3XW1UuZsSmW9KQm7Fw==
+  dependencies:
+    asn1 "^0.2.4"
 
 node-version@^1.0.0:
   version "1.2.0"
@@ -16407,15 +16409,15 @@ reselect@^4.0.0:
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
   integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
-resolve-cloud-common@0.0.37:
-  version "0.0.37"
-  resolved "https://registry.yarnpkg.com/resolve-cloud-common/-/resolve-cloud-common-0.0.37.tgz#308032a0b60fdecd5f9cf48f22dc03f30a42407f"
-  integrity sha512-Yd5kYqkEp6GNbgPpJvhfzV3BdJLB58HgUb4zL/o2E607DvkVo0NQ7xWW5DVEuGmT0yz4OnmM5/A3i5AprgKRiw==
+resolve-cloud-common@0.0.124:
+  version "0.0.124"
+  resolved "https://registry.yarnpkg.com/resolve-cloud-common/-/resolve-cloud-common-0.0.124.tgz#7571c12561f086721be4e218d007f351e8ba332d"
+  integrity sha512-K2nkdamQe49fFZbttRRunKmkf9B8hUaRz5FFaYeSAx2VNwe4LtmNR7imnwT8riFhJdjCbZ9tcOgpgO2xAVbKqg==
   dependencies:
     chalk "^4.0.0"
     debug "^4.1.1"
-    lodash.differencewith "^4.5.0"
-    lodash.isequal "^4.5.0"
+    node-rsa "1.1.1"
+    uuid "^8.3.1"
 
 resolve-cwd@^1.0.0:
   version "1.0.0"
@@ -18909,7 +18911,7 @@ uuid@8.3.1:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
   integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
 
-uuid@8.3.2, uuid@^8.3.2:
+uuid@8.3.2, uuid@^8.3.1, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
