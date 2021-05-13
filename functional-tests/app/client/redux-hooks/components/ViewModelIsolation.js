@@ -56,7 +56,9 @@ const ViewModelIsolationTests = ({
       <Button onClick={register}>Register</Button>
       <Button onClick={like}>Like</Button>
       <Button onClick={switcher}>Unmount</Button>
-      {!componentSwitch ? <ViewModelComponent userId={userId} salt="1" /> : null}
+      {!componentSwitch ? (
+        <ViewModelComponent userId={userId} salt="1" />
+      ) : null}
       {componentSwitch ? <ViewModelComponent userId={userId} salt="2" /> : null}
     </div>
   )
