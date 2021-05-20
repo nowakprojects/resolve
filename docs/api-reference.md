@@ -118,6 +118,42 @@ const dispose = async () => {
 
 <!-- prettier-ignore-end -->
 
+## Read model Adapter Interface
+
+ReSolve supports the following two interfaces that you can use to implement a read model adapter.
+
+### Non-Transactional Event Bus Ledger
+
+This is a basic adapter interface that does not support transaction. Use this interface to implement simple data storage mechanisms (for example, an upsert only storage) and when data consistency is not critical.
+
+This interface requires you to implement the following functions:
+
+| Function Name | Description                          |
+| ------------- | ------------------------------------ |
+| connect       | Initializes a connection to storage. |
+| disconnect    | Closes the storage connection.       |
+
+### Inline Ledger
+
+Inline ledger is the default adapter interface in reSolve. It allows its implementation to fully control the read model's lifecycle. This interface requires you to implement the following functions:
+
+| Function Name  | Description                                   |
+| -------------- | --------------------------------------------- |
+| connect        | Initializes a connection to storage.          |
+| disconnect     | Closes the storage connection.                |
+| subscribe      | Subscribes the read model to event updates.   |
+| resubscribe    | Resubscribes to event updates.                |
+| unsubscribe    | Unsubscribes from event updates.              |
+| deleteProperty | Deletes a saga property from the store.       |
+| getProperty    | Gets a saga property value.                   |
+| listProperties | Obtains a list of all stored saga properties. |
+| setProperty    | Sets a saga property value.                   |
+| reset          | Resets the read model's state.                |
+| pause          | Pauses read model updates.                    |
+| resume         | Resumes read model updates.                   |
+| status         | Gets the read model's build status.           |
+| build          | Builds read model state.                      |
+
 ## Read Model Store Interface
 
 The table below lists functions that you can use to communicate with a Read Model store through a `store` object.
