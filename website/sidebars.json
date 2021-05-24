@@ -26,9 +26,21 @@
           "preparing-to-production",
           "debugging",
           "testing",
-          "api-reference",
           "application-configuration",
           "contributing"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "API",
+        "ids": [
+          "api-read-model-connector",
+          "api-read-model-store",
+          "api-event-store-adapter",
+          "api-handler",
+          "api-saga",
+          "api-resolve-scripts",
+          "api-client"
         ]
       }
     ],
