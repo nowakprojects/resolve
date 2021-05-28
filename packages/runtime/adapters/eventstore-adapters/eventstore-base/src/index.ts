@@ -51,6 +51,7 @@ export {
   threadArrayToCursor,
   cursorToThreadArray,
   initThreadArray,
+  checkEventsContinuity,
 } from './cursor-operations'
 export {
   MAINTENANCE_MODE_AUTO,
