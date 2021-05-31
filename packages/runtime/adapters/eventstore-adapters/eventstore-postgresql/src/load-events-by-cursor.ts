@@ -24,10 +24,10 @@ const loadEventsByCursor = async (
   const vectorConditions = cursorToThreadArray(cursor)
 
   const queryConditions: any[] = []
-  if (eventTypes != null) {
+  if (eventTypes != null && eventTypes.length > 0) {
     queryConditions.push(`"type" IN (${eventTypes.map(injectString)})`)
   }
-  if (aggregateIds != null) {
+  if (aggregateIds != null && aggregateIds.length > 0) {
     queryConditions.push(`"aggregateId" IN (${aggregateIds.map(injectString)})`)
   }
 

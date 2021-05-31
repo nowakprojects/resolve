@@ -10,14 +10,14 @@ const createQuery = (pool: AdapterPool, filter: EventFilter): string => {
   const { eventTypes, aggregateIds } = filter
 
   const queryConditions = []
-  if (eventTypes != null) {
+  if (eventTypes != null && eventTypes.length > 0) {
     queryConditions.push(
       `${escapeId('type')} IN (${eventTypes
         .map(injectString.bind(null, pool))
         .join(', ')})`
     )
   }
-  if (aggregateIds != null) {
+  if (aggregateIds != null && aggregateIds.length > 0) {
     queryConditions.push(
       `${escapeId('aggregateId')} IN (${aggregateIds
         .map(injectString.bind(null, pool))
